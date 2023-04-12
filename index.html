@@ -1,12 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Hello World Azure Template</title>
+    <meta charset="UTF-8">
+    <title>Matchmaker for the web</title>
 </head>
 <body>
-<h1>Azure Static Website Template</h1>
-<p>This page is a sample page for a “Hello World” Azure Static Website Template. The page contains an HTML validation warning. 
-Can you find and fix that warning? What about the curly quotes? Do they current work in all browsers? Can you fix the curly 
-quotes also? And what about proper indenting?</p>
+    <h1>Matchmaker</h1>
+    <p>Welcome to Matchmaker! ans</p>
+<label>the eagles are a cool football team</label><br />
+    <select id="q1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<br /> <br />
+
+<label>rock is better than rap</label><br />
+    <select id="q2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<br /> <br />
+
+<label>the movie 'the hunt for red october' is a great movie</label><br />
+    <select id="q3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<br /> <br />
+
+<label>PC is better than MAC</label><br />
+    <select id="q4">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<br /> <br />
+
+<label>phillidelphia is an awesome city</label><br />
+    <select id="q5">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<br /> <br />
+<button onclick="calcCompat()">calculate compatibilty</button>
+<p id="compatibility"></p>
+<p id="q1 compatibility"></p>
+<p id="q2 compatibility"></p>
+<p id="q3 compatibility"></p>
+<p id="q4 compatibility"></p>
+<p id="q5 compatibility"></p>
+    <script>
+        console.log("starting matchmaker");
+
+function calcCompat() {
+    console.log("calcCompat()");
+
+    const desrespo = [
+        5,
+        3,
+        4,
+        5,
+        5
+    ]
+
+    const max_score = 25;
+
+    let q1respo = document.getElementById("q1").selectedOptions[0].value;
+    let q2respo = document.getElementById("q2").selectedOptions[0].value;
+    let q3respo = document.getElementById("q3").selectedOptions[0].value;
+    let q4respo = document.getElementById("q4").selectedOptions[0].value;
+    let q5respo = document.getElementById("q5").selectedOptions[0].value;
+
+    console.log("Question 1 answer")
+	console.log(document.getElementById("q1").selectedOptions[0].value);
+	console.log(q1respo);
+
+    console.log("Question 2 answer")
+	console.log(document.getElementById("q2").selectedOptions[0].value);
+	console.log(q2respo);
+
+    console.log("Question 3 answer")
+	console.log(document.getElementById("q3").selectedOptions[0].value);
+	console.log(q3respo);
+
+    console.log("Question 4 answer")
+	console.log(document.getElementById("q4").selectedOptions[0].value);
+	console.log(q4respo);
+
+    console.log("Question 5 answer")
+	console.log(document.getElementById("q5").selectedOptions[0].value);
+	console.log(q5respo);
+
+    let q1compat = 5 - Math.abs(q1respo - desrespo[0]);
+    let q2compat = 5 - Math.abs(q2respo - desrespo[1]);
+    let q3compat = 5 - Math.abs(q3respo - desrespo[2]);
+    let q4compat = 5 - Math.abs(q4respo - desrespo[3]);
+    let q5compat = 5 - Math.abs(q5respo - desrespo[4]);
+
+    console.log("question compatibility")
+    console.log(q1compat);
+    console.log(q2compat);
+    console.log(q3compat);
+    console.log(q4compat);
+    console.log(q5compat);
+
+    let totalcompat = q1compat + q2compat + q3compat + q4compat + q5compat;
+
+    totalcompat *= 100 / max_score;
+	totalcompat = Math.round(totalcompat);
+    console.log("total compatibility");
+	console.log(totalcompat);
+
+    document.getElementById("compatibility").innerHTML = "your compatibility is "+totalcompat;
+    document.getElementById("q1 compatibility").innerHTML = "Question 1 score = "+q1compat;
+    document.getElementById("q2 compatibility").innerHTML = "Question 1 score = "+q2compat;
+    document.getElementById("q3 compatibility").innerHTML = "Question 1 score = "+q3compat;
+    document.getElementById("q4 compatibility").innerHTML = "Question 1 score = "+q4compat;
+    document.getElementById("q5 compatibility").innerHTML = "Question 1 score = "+q5compat;
+
+}
+    </script>
 </body>
+
 </html>
+
+
+

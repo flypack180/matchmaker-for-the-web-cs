@@ -1,2 +1,5 @@
-# Azure Static Website Template
-This repository can be used to create a simple Azure hosted static website.
+Carson Steinbach
+Matchmaker-for-the-web
+
+Credit:
+W3C
